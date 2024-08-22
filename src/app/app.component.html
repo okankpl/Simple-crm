@@ -4,10 +4,11 @@
       <p>Platz für Logo</p>
     </div>
 
-    <ul>
-      <li><mat-icon>dashboard</mat-icon>Dashboard</li>
-      <li><mat-icon>person_outline</mat-icon> User</li>
-    </ul>
+   
+<ul>
+  <li [routerLink]="['/']"><mat-icon>dashboard</mat-icon> Dashboard</li>
+  <li [routerLink]="['/user']"><mat-icon>person_outline</mat-icon> User</li>
+</ul>
   </mat-drawer>
 
   <div class="example-sidenav-content">
@@ -25,6 +26,8 @@
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="router-container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </mat-drawer-container>
