@@ -19,7 +19,7 @@ export class UserComponent {
   constructor(public dialog: MatDialog) {
     
 }
-openDialog(): void {
+openDialog() {
   this.dialog.open(DialogAddUserComponent);
 }
 }
