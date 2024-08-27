@@ -16,7 +16,7 @@
   <div class="input-field">
     <mat-form-field class="width-100" appearance="outline">
       <mat-label>Birth date</mat-label>
-      <input [(ngModel)]="user.birthDate" matInput [matDatepicker]="datepicker" />
+      <input [(ngModel)]="birthDate" matInput [matDatepicker]="datepicker" />
       <mat-datepicker-toggle
         matIconSuffix
         [for]="datepicker"
@@ -50,6 +50,6 @@
 <mat-dialog-actions>
   <div class="buttons">
     <button mat-button>Cancel</button>
-    <button mat-button cdkFocusInitial>save</button>
+    <button mat-button (click)="saveUser()" cdkFocusInitial>save</button>
   </div>
 </mat-dialog-actions>
