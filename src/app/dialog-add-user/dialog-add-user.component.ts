@@ -5,6 +5,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule, provideNativeDateAdapter} from '@angular/material/core';
+import { User } from '../../models/user.class';
+
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -15,6 +17,8 @@ import {MatNativeDateModule, provideNativeDateAdapter} from '@angular/material/c
 })
 export class DialogAddUserComponent {
 
+  user = new User();
+  
   onNoClick() {
 
   }
