@@ -24,6 +24,10 @@ export class UserComponent {
     
 }
 openDialog() {
-  this.dialog.open(DialogAddUserComponent);
+  const dialogRef = this.dialog.open(DialogAddUserComponent);
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('Dialog result: ', result);
+  });
 }
 }
