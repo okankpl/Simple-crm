@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule ,MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from '../user/user.component';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Inject } from '@angular/core';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -23,7 +23,8 @@ import { Inject } from '@angular/core';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressBarModule,
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss']
@@ -32,13 +33,18 @@ export class DialogAddUserComponent {
 
   user = new User();
   birthDate: Date;
+  loading = true;
 
-  constructor(@Inject(Firestore) private firestore: Firestore) {
+  constructor(@Inject(Firestore) private firestore: Firestore,private dialogRef: MatDialogRef<DialogAddUserComponent>,) {
     this.birthDate = new Date();
   }
 
   onNoClick() {
-    // Diese Methode kann genutzt werden, um den Dialog zu schließen oder andere Aktionen auszuführen
+   
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
   async saveUser() {

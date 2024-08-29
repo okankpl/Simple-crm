@@ -21,10 +21,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),  // Nur einmal aufrufen
-    provideFirestore(() => getFirestore()),  // Nur einmal aufrufen
+    provideFirebaseApp(() => initializeApp(firebaseConfig)), 
+    provideFirestore(() => getFirestore()), 
     provideDatabase(() => getDatabase()),
     provideAuth(() => getAuth()),
-    provideFunctions(() => getFunctions())  // Füge Cloud Functions hinzu
+    provideFunctions(() => getFunctions())  
   ]
 };
