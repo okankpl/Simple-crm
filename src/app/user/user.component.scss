@@ -1,6 +1,42 @@
-.add-user-btn{
-    background-color: #005CBB;
-    position: absolute;
-    right: 56px;
-    bottom: 56px;
+mat-card-content {
+    padding-right: 0;
+    padding-left: 0;
 }
+
+.add-user-btn {
+  background-color: #005cbb;
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.4);
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  td {
+    height: 48px;
+    width: calc(100%/3);
+
+    &:first-child {
+        padding-left: 16px;
+    }
+    
+  }
+  th {
+    text-align: start;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba($color: #000000, $alpha: 0.5);
+    &:first-child {
+        padding-left: 16px;
+    }
+  }
+}
+

@@ -11,6 +11,7 @@ import { UserComponent } from '../user/user.component';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Inject } from '@angular/core';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -25,6 +26,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressBarModule,
+    CommonModule
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrls: ['./dialog-add-user.component.scss']
@@ -33,7 +35,7 @@ export class DialogAddUserComponent {
 
   user = new User();
   birthDate: Date;
-  loading = true;
+  loading = false;
 
   constructor(@Inject(Firestore) private firestore: Firestore,private dialogRef: MatDialogRef<DialogAddUserComponent>,) {
     this.birthDate = new Date();
@@ -50,12 +52,15 @@ export class DialogAddUserComponent {
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('current user is', this.user);
-
+    this.loading = true;
     try {
       const result = await addDoc(collection(this.firestore, 'users'), this.user.toJSON());
       console.log('User has been added', result);
+      this.loading = false;
     } catch (error) {
       console.error('Error adding user:', error);
     }
+    this.loading = false;
+    this.closeDialog();
   }
 }
