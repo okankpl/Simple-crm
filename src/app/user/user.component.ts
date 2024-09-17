@@ -13,21 +13,20 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [RouterModule,CommonModule, MatButtonModule, MatDividerModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule],
+  imports: [RouterModule, CommonModule, MatButtonModule, MatDividerModule, MatIconModule, MatTooltipModule, MatDialogModule, MatCardModule],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user = new User();
   users: User[] = [];
-  
-  constructor(public dialog: MatDialog, @Inject(Firestore) private firestore: Firestore) {}
+
+  constructor(public dialog: MatDialog, @Inject(Firestore) private firestore: Firestore) { }
 
   ngOnInit(): void {
     const usersCollection = collection(this.firestore, 'users');
     collectionData(usersCollection, { idField: 'id' }).subscribe((changes) => {
       console.log('Received changes from DB', changes);
-      this.users = changes as User[]; 
+      this.users = changes as User[];
     });
   }
 

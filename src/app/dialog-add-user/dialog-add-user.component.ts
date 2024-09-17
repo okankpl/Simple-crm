@@ -37,7 +37,7 @@ export class DialogAddUserComponent {
   birthDate: Date;
   loading = false;
 
-  constructor(@Inject(Firestore) private firestore: Firestore,private dialogRef: MatDialogRef<DialogAddUserComponent>,) {
+  constructor(@Inject(Firestore) private firestore: Firestore,public dialogRef: MatDialogRef<DialogAddUserComponent>,) {
     this.birthDate = new Date();
   }
 
@@ -45,10 +45,7 @@ export class DialogAddUserComponent {
    
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
-
+  
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('current user is', this.user);
@@ -61,6 +58,6 @@ export class DialogAddUserComponent {
       console.error('Error adding user:', error);
     }
     this.loading = false;
-    this.closeDialog();
+    this.dialogRef.close();
   }
 }
