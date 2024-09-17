@@ -18,17 +18,13 @@
         <th>City</th>
       </tr>
 
-      <tr>
-        <td>asdasd</td>
-        <td>asdasd</td>
-        <td>asdasd</td>
+      <tr *ngFor="let user of users">
+        <td>{{user.firstName}} {{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td> {{user.city}} </td>
       </tr>
       
-      <tr>
-        <td>asdasd</td>
-        <td>asdasd</td>
-        <td>asdasd</td>
-      </tr>
+  
     </table>
   </mat-card-content></mat-card
 >
