@@ -40,12 +40,7 @@ export class DialogAddUserComponent {
   constructor(@Inject(Firestore) private firestore: Firestore,public dialogRef: MatDialogRef<DialogAddUserComponent>,) {
     this.birthDate = new Date();
   }
-
-  onNoClick() {
-   
-  }
-
-  
+ 
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('current user is', this.user);
