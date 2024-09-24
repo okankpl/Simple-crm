@@ -1,0 +1,22 @@
+.user-detail-header {
+    min-height: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    >img{
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+        padding-bottom: 16px;
+        padding-left: 16px;
+        
+    }
+
+    >div {
+        margin-left: 32px;
+        display: flex;
+        flex-direction: column;
+        height: 80px;
+        padding-bottom: 16px;
+    }
+}
