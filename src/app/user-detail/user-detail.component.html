@@ -10,9 +10,9 @@
     <mat-card-header>
         <mat-card-title>Address</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="user-information">
         <span>{{user.street}} </span>
-        <span>{{user.city}} </span>
+        <span> {{user.zipCode}} {{user.city}} </span>
         <span>{{ user.birthDate | date:'dd.MM.yyyy' }} </span>
       </mat-card-content>
   </mat-card>
