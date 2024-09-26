@@ -7,10 +7,11 @@ import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule,MatIcon,MatIconModule,MatButtonModule],
+  imports: [CommonModule, MatCardModule,MatIcon,MatIconModule,MatButtonModule,MatMenuModule],
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
@@ -40,5 +41,9 @@ export class UserDetailComponent implements OnInit {
         console.error('Keine Benutzer-ID in den Routenparametern gefunden.');
       }
     });
+  }
+
+  openAddressDialog() {
+    
   }
 }
