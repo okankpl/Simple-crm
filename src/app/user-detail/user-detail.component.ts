@@ -7,11 +7,14 @@ import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule,MatIcon,MatIconModule,MatButtonModule,MatMenuModule],
+  imports: [CommonModule, MatCardModule, MatIcon, MatIconModule, MatDialogModule, MatButtonModule, MatMenuModule],
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
@@ -22,7 +25,8 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    @Inject(Firestore) private firestore: Firestore
+    @Inject(Firestore) private firestore: Firestore,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,14 +48,15 @@ export class UserDetailComponent implements OnInit {
   }
 
   openAddressDialog() {
-    
+
   }
 
   editUserDetail() {
-
+    let dialog = this.dialog.open(DialogEditAddressComponent);
+    dialog.componentInstance.user = this.user;
   }
 
   editMenu() {
-    
+    this.dialog.open(DialogEditAddressComponent);
   }
 }
