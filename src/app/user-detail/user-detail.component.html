@@ -1,18 +1,24 @@
 <mat-card appearance="outlined" class="user-detail-header">
-    <img src="assets/img/user2.png" alt="">
-    <div>
-        <h2>{{user.firstName}} {{user.lastName}}</h2>
-        <h3>{{user.email}} </h3>
-    </div>
-  </mat-card>
+  <img src="assets/img/user2.png" alt="" />
+  <div>
+    <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+    <h3>{{ user.email }}</h3>
+  </div>
+</mat-card>
 
-  <mat-card class="mt-32">
-    <mat-card-header>
-        <mat-card-title>Address</mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="user-information">
-        <span>{{user.street}} </span>
-        <span> {{user.zipCode}} {{user.city}} </span>
-        <span>{{ user.birthDate | date:'dd.MM.yyyy' }} </span>
-      </mat-card-content>
-  </mat-card>
+<mat-card class="mt-32">
+  
+    <button class="pin-right-upper-corner" mat-icon-button>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+ 
+
+  <mat-card-header>
+    <mat-card-title>Address</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="user-information">
+    <span>{{ user.street }}</span>
+    <span>{{ user.zipCode }} {{ user.city }}</span>
+    <span>{{ user.birthDate | date : "dd.MM.yyyy" }}</span>
+  </mat-card-content>
+</mat-card>

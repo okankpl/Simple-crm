@@ -4,11 +4,13 @@ import { MatCardModule } from '@angular/material/card';
 import { Firestore, doc, docData } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
 import { CommonModule } from '@angular/common';
-
+import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule,MatIcon,MatIconModule,MatButtonModule],
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
