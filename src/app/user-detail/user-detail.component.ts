@@ -46,4 +46,12 @@ export class UserDetailComponent implements OnInit {
   openAddressDialog() {
     
   }
+
+  editUserDetail() {
+
+  }
+
+  editMenu() {
+    
+  }
 }
