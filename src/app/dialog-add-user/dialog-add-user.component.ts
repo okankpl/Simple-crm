@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialogModule ,MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { UserComponent } from '../user/user.component';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Inject } from '@angular/core';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-dialog-add-user',
@@ -37,10 +37,10 @@ export class DialogAddUserComponent {
   birthDate: Date;
   loading = false;
 
-  constructor(@Inject(Firestore) private firestore: Firestore,public dialogRef: MatDialogRef<DialogAddUserComponent>,) {
+  constructor(@Inject(Firestore) private firestore: Firestore, public dialogRef: MatDialogRef<DialogAddUserComponent>,) {
     this.birthDate = new Date();
   }
- 
+
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('current user is', this.user);
